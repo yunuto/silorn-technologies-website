@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags -->
+  <title>YY Labs – App Design & Webentwicklung</title>
+  <meta name="description" content="YY Labs entwickelt moderne Apps, Websites und digitale Produkte – von UI/UX Design bis Webentwicklung und Launch.">
+  <meta name="keywords" content="App Entwicklung, Webentwicklung, App Design, UI UX Design, Website erstellen lassen, digitales Produkt, YY Labs, ROFT">
+  <meta name="author" content="YY Labs">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpg" href="/assets/logo.jpg">
+  
+  <!-- CSS Stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <!-- Background Ambient Lights -->
+  <div class="glow-orb orb-primary"></div>
+  <div class="glow-orb orb-secondary"></div>
+  <div class="glow-orb orb-cyan"></div>
+
+  <!-- HEADER / NAVIGATION -->
+  <header id="header">
+    <div class="container">
+      <a href="#start" class="logo">
+        <img src="/assets/logo.jpg" alt="YY Labs Logo" class="logo-img">
+        <span class="logo-text">YY-<span>Labs</span></span>
+      </a>
+      
+      <nav id="nav-menu">
+        <a href="#start" class="active">Start</a>
+        <a href="#leistungen">Leistungen</a>
+        <a href="#referenzen">Referenzen</a>
+        <a href="#prozess">Prozess</a>
+        <a href="#ueber-uns">Über YY Labs</a>
+        <a href="#kontakt">Kontakt</a>
+      </nav>
+      
+      <div class="nav-actions">
+        <a href="#kontakt" class="btn btn-secondary" style="padding: 0.65rem 1.25rem; font-size: 0.85rem;">Projekt anfragen</a>
+      </div>
+      
+      <button class="menu-btn" id="menu-toggle" aria-label="Menü öffnen">
+        <i data-lucide="menu" class="btn-icon"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section id="start" class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content reveal">
+          <div class="hero-tagline">
+            <span class="trust-dot"></span>
+            Digitale Exzellenz
+          </div>
+          <h1>Digitale Produkte, die aussehen wie <span class="text-gradient-accent">Zukunft.</span></h1>
+          <p class="hero-sub">YY Labs entwickelt moderne Apps, performante Websites und digitale Erlebnisse – von der ersten Idee bis zum fertigen Launch.</p>
+          
+          <div class="hero-ctas">
+            <a href="#kontakt" class="btn btn-primary">
+              Projekt starten
+              <i data-lucide="arrow-right" class="btn-icon"></i>
+            </a>
+            <a href="#referenzen" class="btn btn-secondary">
+              Referenzen ansehen
+            </a>
+          </div>
+          
+          <div class="hero-trust">
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              App Design
+            </div>
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              Webentwicklung
+            </div>
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              UI/UX
+            </div>
+            <div class="trust-item">
+              <span class="trust-dot"></span>
+              Launch-ready Produkte
+            </div>
+          </div>
+        </div>
+        
+        <div class="hero-visual reveal reveal-delay-2">
+          <div class="mockup-container">
+            <!-- App Screen Mockup -->
+            <div class="mockup-card mockup-1">
+              <div class="mockup-header">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div class="ui-square">
+                  <i data-lucide="smartphone" style="width: 36px; height: 36px; color: #fff;"></i>
+                </div>
+                <div>
+                  <div class="ui-line"></div>
+                  <div class="ui-line medium"></div>
+                  <div class="ui-line short"></div>
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top: auto;">
+                  <div class="ui-line short" style="margin:0; width:40%;"></div>
+                  <div style="width:24px; height:24px; border-radius:50%; background:var(--color-accent);"></div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Web Window Mockup -->
+            <div class="mockup-card mockup-2">
+              <div class="mockup-header">
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+                <span class="mockup-dot"></span>
+              </div>
+              <div class="mockup-body">
+                <div style="display:flex; gap:1rem; height: 100%;">
+                  <div style="width:40%; background:rgba(255,255,255,0.03); border-radius:8px; padding:0.5rem; display:flex; flex-direction:column; justify-content:center; align-items:center;">
+                    <i data-lucide="code-2" style="width: 24px; height: 24px; color: var(--color-primary);"></i>
+                  </div>
+                  <div style="width:60%; display:flex; flex-direction:column; justify-content:center;">
+                    <div class="ui-line"></div>
+                    <div class="ui-line short"></div>
+                    <div class="ui-line medium"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Small dashboard widget -->
+            <div class="mockup-card mockup-3">
+              <div class="mockup-body" style="padding:0.75rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 0.5rem;">
+                  <span style="font-size:0.7rem; color:var(--text-muted); font-weight:600;">ACTIVE USERS</span>
+                  <i data-lucide="trending-up" style="width:12px; height:12px; color:var(--color-accent);"></i>
+                </div>
+                <div style="font-size:1.5rem; font-family:var(--font-title); font-weight:700; color:#fff; line-height:1; margin-bottom:0.25rem;">+148.3%</div>
+                <div style="width:100%; height:40px; display:flex; align-items:flex-end; gap:3px;">
+                  <div style="flex:1; height:30%; background:rgba(0,82,255,0.2); border-radius:2px;"></div>
+                  <div style="flex:1; height:50%; background:rgba(0,82,255,0.2); border-radius:2px;"></div>
+                  <div style="flex:1; height:45%; background:rgba(0,82,255,0.2); border-radius:2px;"></div>
+                  <div style="flex:1; height:80%; background:var(--color-primary); border-radius:2px;"></div>
+                  <div style="flex:1; height:65%; background:var(--color-primary); border-radius:2px;"></div>
+                  <div style="flex:1; height:95%; background:linear-gradient(to top, var(--color-primary), var(--color-accent)); border-radius:2px;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEISTUNGEN SECTION -->
+  <section id="leistungen">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2>Was YY Labs <span class="text-gradient-accent">entwickelt</span></h2>
+        <p class="section-subtitle">Wir vereinen kreatives Design mit modernster Technik, um digitale Produkte zu erschaffen, die begeistern.</p>
+      </div>
+      
+      <div class="services-grid">
+        <!-- Service Card 1 -->
+        <div class="service-card glass reveal reveal-delay-1">
+          <div class="service-icon-box">
+            <i data-lucide="smartphone" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>App Design & Entwicklung</h3>
+          <p>Von der App-Idee zum klickbaren Prototyp und weiter zur fertigen mobilen Anwendung. YY Labs gestaltet intuitive App-Erlebnisse mit Fokus auf Design, Nutzerführung und Skalierbarkeit.</p>
+        </div>
+        
+        <!-- Service Card 2 -->
+        <div class="service-card glass reveal reveal-delay-2">
+          <div class="service-icon-box">
+            <i data-lucide="code-2" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Webentwicklung</h3>
+          <p>Moderne Websites, Landingpages und Webplattformen, die schnell laden, professionell wirken und auf jedem Gerät überzeugen – für einen starken und seriösen Webauftritt.</p>
+        </div>
+        
+        <!-- Service Card 3 -->
+        <div class="service-card glass reveal reveal-delay-1">
+          <div class="service-icon-box">
+            <i data-lucide="palette" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>UI/UX Design</h3>
+          <p>Klare Interfaces, strukturierte und logische Nutzerführung sowie visuelle Welten, die nicht nur gut aussehen, sondern sich auch natürlich und flüssig anfühlen.</p>
+        </div>
+        
+        <!-- Service Card 4 -->
+        <div class="service-card glass reveal reveal-delay-2">
+          <div class="service-icon-box">
+            <i data-lucide="rocket" style="width: 28px; height: 28px;"></i>
+          </div>
+          <h3>Digitale Produktstrategie</h3>
+          <p>Struktur, Konzept, Features und Launch-Plan für digitale Produkte. Wir begleiten dich strategisch, damit aus einer rohen Idee ein erfolgreiches und echtes Produkt wird.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REFERENZEN SECTION -->
+  <section id="referenzen">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2>Referenzen & <span class="text-gradient-cyan">eigene Produkte</span></h2>
+        <p class="section-subtitle portfolio-intro">YY Labs baut nicht nur für Kunden, sondern entwickelt auch eigene digitale Produkte. Diese Projekte zeigen, wie Design, Entwicklung und Produktdenken zusammenkommen.</p>
+      </div>
+      
+      <!-- SUBSECTION 1: Eigene Produkte & Startup-Projekte -->
+      <div class="portfolio-subsection reveal">
+        <div class="portfolio-subsection-header">
+          <h3>Eigene Produkte & Startup-Projekte</h3>
+          <p>Hier entwickeln wir eigene Ideen zu vollfunktionsfähigen digitalen Produkten – von der Konzeption bis zum Launch.</p>
+        </div>
+        
+        <div class="portfolio-grid-three">
+          <!-- Project 1: ROFT -->
+          <div class="portfolio-card glass reveal">
+            <div class="portfolio-img-wrapper">
+              <div class="portfolio-badge-group">
+                <span class="badge badge-status planned">In Entwicklung</span>
+                <span class="badge badge-cat">App</span>
+              </div>
+              <img src="/assets/roft-app.jpg" alt="ROFT App Mockup" class="portfolio-img">
+            </div>
+            <div class="portfolio-body">
+              <h3>ROFT</h3>
+              <p>ROFT ist eine Automotive-Social-App für Auto- und Motorrad-Enthusiasten. Die App verbindet Community, digitale Garage, Marketplace, Hall of Fame, Q&A und Event-Features in einem modernen mobilen Erlebnis.</p>
+              <a href="https://RoftOfficial.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                Website ansehen
+                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Project 2: ROFT Website -->
+          <div class="portfolio-card glass reveal reveal-delay-1">
+            <div class="portfolio-img-wrapper">
+              <div class="portfolio-badge-group">
+                <span class="badge badge-status">Online</span>
+                <span class="badge badge-cat">Website / Marketing</span>
+              </div>
+              <!-- Custom Web Graphic representing ROFT Website -->
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #090915 0%, #151532 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="text-align: center; z-index: 2;">
+                  <div style="font-family: var(--font-title); font-size: 1.5rem; font-weight: 800; color: #fff; letter-spacing: 0.1em; text-shadow: 0 0 20px rgba(0, 82, 255, 0.4);">ROFT</div>
+                  <div style="font-size: 0.6rem; color: var(--color-accent); letter-spacing: 0.25em; text-transform: uppercase; margin-top: 0.25rem;">OFFICIAL WEBSITE</div>
+                </div>
+                <!-- Grid overlay for web aesthetic -->
+                <div style="position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 20px 20px;"></div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>ROFT Official Website</h3>
+              <p>Die offizielle Website zur ROFT App präsentiert das Produkt, erklärt die wichtigsten Features und dient als zentrale Landingpage für Interessenten, Community und zukünftige App-Nutzer.</p>
+              <a href="https://RoftOfficial.com" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                Live ansehen
+                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Project 3: Coming Soon #2 (App Projekt #2) -->
+          <div class="portfolio-card glass reveal reveal-delay-2">
+            <div class="portfolio-img-wrapper">
+              <div class="portfolio-badge-group">
+                <span class="badge badge-status soon">In Planung</span>
+                <span class="badge badge-cat">App</span>
+              </div>
+              <div class="portfolio-overlay-text">Coming Soon</div>
+              <div style="width: 100%; height: 100%; background: #05050b; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="lock" style="width: 32px; height: 32px; color: rgba(255,255,255,0.05);"></i>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>App Projekt #2</h3>
+              <p>Ein weiteres innovatives digitales Produkt von YY Labs befindet sich in Planung und Konzeptionierung.</p>
+              <button class="btn btn-secondary" disabled style="opacity: 0.4; cursor: not-allowed; padding: 0.5rem 1rem; font-size: 0.8rem;">
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- SUBSECTION 2: Kundenprojekte & Referenzen -->
+      <div class="portfolio-subsection reveal" style="margin-top: 6rem;">
+        <div class="portfolio-subsection-header">
+          <h3>Kundenprojekte & Referenzen</h3>
+          <p>Maßgeschneiderte digitale Lösungen für Partner, Gründer und etablierte Unternehmen.</p>
+        </div>
+        
+        <div class="portfolio-grid-three">
+          <!-- Project 4: Primus Gebäudeservice -->
+          <div class="portfolio-card glass reveal">
+            <div class="portfolio-img-wrapper">
+              <div class="portfolio-badge-group">
+                <span class="badge badge-status">Online</span>
+                <span class="badge badge-cat">Webseite</span>
+              </div>
+              <!-- Custom Web Graphic representing Primus -->
+              <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #020b18 0%, #032042 100%); display: flex; align-items: center; justify-content: center; position: relative;">
+                <div style="text-align: center; z-index: 2;">
+                  <div style="font-family: var(--font-title); font-size: 1.35rem; font-weight: 700; color: #fff; letter-spacing: 0.05em;">PRIMUS</div>
+                  <div style="font-size: 0.65rem; color: #9ca3af; letter-spacing: 0.15em; text-transform: uppercase; margin-top: 0.15rem;">GEBÄUDESERVICE</div>
+                </div>
+                <div style="position: absolute; bottom: 0; left: 0; right: 0; height: 35%; background: rgba(0, 82, 255, 0.1); border-top: 1px solid rgba(0, 82, 255, 0.2); backdrop-filter: blur(4px); display: flex; align-items: center; justify-content: center; font-size: 0.6rem; color: #4da6ff;">PREMIUM PERFORMANCE</div>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>PRIMUS Gebäudeservice</h3>
+              <p>Eine professionelle, hochperformante Website für ein Gebäudeservice-Unternehmen. Entwickelt mit Fokus auf modernes Design und schnelle Ladezeiten.</p>
+              <a href="https://primusgebaeudeservice.de" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.8rem;">
+                Website ansehen
+                <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+              </a>
+            </div>
+          </div>
+          
+          <!-- Project 5: App-Projekt #3 (Coming Soon #3) -->
+          <div class="portfolio-card glass reveal reveal-delay-1">
+            <div class="portfolio-img-wrapper">
+              <div class="portfolio-badge-group">
+                <span class="badge badge-status soon">Coming Soon</span>
+                <span class="badge badge-cat">App / Web</span>
+              </div>
+              <div class="portfolio-overlay-text">Coming Soon</div>
+              <div style="width: 100%; height: 100%; background: #05050b; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="lock" style="width: 32px; height: 32px; color: rgba(255,255,255,0.05);"></i>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>App Projekt #3</h3>
+              <p>Neue App-Konzepte und digitale Plattformen für unsere Kunden werden hier bald ergänzt.</p>
+              <button class="btn btn-secondary" disabled style="opacity: 0.4; cursor: not-allowed; padding: 0.5rem 1rem; font-size: 0.8rem;">
+                Coming Soon
+              </button>
+            </div>
+          </div>
+          
+          <!-- Project 6: App-Projekt #4 (Coming Soon #4) -->
+          <div class="portfolio-card glass reveal reveal-delay-2">
+            <div class="portfolio-img-wrapper">
+              <div class="portfolio-badge-group">
+                <span class="badge badge-status soon">Coming Soon</span>
+                <span class="badge badge-cat">App / Web</span>
+              </div>
+              <div class="portfolio-overlay-text">Coming Soon</div>
+              <div style="width: 100%; height: 100%; background: #05050b; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="lock" style="width: 32px; height: 32px; color: rgba(255,255,255,0.05);"></i>
+              </div>
+            </div>
+            <div class="portfolio-body">
+              <h3>App Projekt #4</h3>
+              <p>Weitere Kunden-Referenzen und Launches folgen mit zukünftigen Projektfreigaben.</p>
+              <button class="btn btn-secondary" disabled style="opacity: 0.4; cursor: not-allowed; padding: 0.5rem 1rem; font-size: 0.8rem;">
+                Coming Soon
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROZESS SECTION -->
+  <section id="prozess">
+    <div class="container">
+      <div class="text-center reveal">
+        <h2>Von der Idee <span class="text-gradient-accent">zum Launch</span></h2>
+        <p class="section-subtitle">Unser strukturierter Prozess stellt sicher, dass dein digitales Produkt in jeder Phase auf höchstem Niveau realisiert wird.</p>
+      </div>
+      
+      <div class="process-timeline">
+        <!-- Step 1 -->
+        <div class="process-step reveal">
+          <div class="process-number">01</div>
+          <div class="process-content">
+            <h3>Idee & Konzept</h3>
+            <p>Wir definieren das Ziel, analysieren die Nutzergruppe, legen wichtige Funktionen fest und formen den digitalen Kern deines Produkts.</p>
+          </div>
+        </div>
+        
+        <!-- Step 2 -->
+        <div class="process-step reveal">
+          <div class="process-number">02</div>
+          <div class="process-content">
+            <h3>Design & Prototyp</h3>
+            <p>Aus der Idee entsteht ein modernes, ansprechendes Interface mit klarer Nutzerführung und einem funktionsfähigen, interaktiven Prototyp.</p>
+          </div>
+        </div>
+        
+        <!-- Step 3 -->
+        <div class="process-step reveal">
+          <div class="process-number">03</div>
+          <div class="process-content">
+            <h3>Entwicklung</h3>
+            <p>Die Website, App oder Webplattform wird technisch umgesetzt – modern programmiert, responsive, hochgradig performant und zukunftssicher erweiterbar.</p>
+          </div>
+        </div>
+        
+        <!-- Step 4 -->
+        <div class="process-step reveal">
+          <div class="process-number">04</div>
+          <div class="process-content">
+            <h3>Testing & Optimierung</h3>
+            <p>Design, Funktionen, Ladezeiten und das gesamte Nutzererlebnis werden intensiv auf verschiedenen Geräten getestet und feingeschliffen.</p>
+          </div>
+        </div>
+        
+        <!-- Step 5 -->
+        <div class="process-step reveal">
+          <div class="process-number">05</div>
+          <div class="process-content">
+            <h3>Launch & Weiterentwicklung</h3>
+            <p>Wir begleiten dein Produkt bis zum erfolgreichen Go-Live und unterstützen dich danach bei Upgrades, Skalierung und Optimierungen.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WARUM YY LABS SECTION -->
+  <section id="warum-yylabs" style="background: rgba(255, 255, 255, 0.01); border-top: 1px solid rgba(255,255,255,0.02); border-bottom: 1px solid rgba(255,255,255,0.02);">
+    <div class="container">
+      <div class="why-grid">
+        <div class="why-content reveal">
+          <h2>Warum <span class="text-gradient-cyan">YY Labs?</span></h2>
+          <p class="section-subtitle" style="margin-left: 0; text-align: left; margin-bottom: 3rem;">Wir verstehen digitale Produkte ganzheitlich. Unser Ziel ist es, Ästhetik und kompromisslose Technik zu verschmelzen.</p>
+          
+          <div class="why-list">
+            <!-- Item 1 -->
+            <div class="why-item glass">
+              <i data-lucide="check-circle" class="why-item-icon"></i>
+              <div>
+                <h3>Design und Entwicklung aus einer Hand</h3>
+                <p>Keine Reibungsverluste zwischen Designern und Entwicklern. Wir konzipieren, gestalten und programmieren nahtlos.</p>
+              </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="why-item glass">
+              <i data-lucide="compass" class="why-item-icon"></i>
+              <div>
+                <h3>Fokus auf moderne digitale Produkte</h3>
+                <p>Wir bauen keine Standardlösungen von gestern, sondern moderne, zukunftsorientierte Plattformen mit starker Identität.</p>
+              </div>
+            </div>
+            
+            <!-- Item 3 -->
+            <div class="why-item glass">
+              <i data-lucide="zap" class="why-item-icon"></i>
+              <div>
+                <h3>Schnelle Umsetzung mit sauberer Struktur</h3>
+                <p>Durch agile Arbeitsweisen und moderne Tech-Stacks realisieren wir Projekte zeitnah und in exzellenter Qualität.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="why-visual reveal reveal-delay-2">
+          <div class="why-box glass">
+            <div class="why-box-icon">
+              <i data-lucide="shield-check" style="width: 40px; height: 40px;"></i>
+            </div>
+            <h3>App- & Web-Erfahrung durch eigene Produkte</h3>
+            <p style="margin-top: 1rem; line-height: 1.7;">Wir entwickeln und betreiben eigene erfolgreiche Produkte wie <strong>ROFT</strong>. Dadurch wissen wir genau, was im echten Betrieb, beim App-Store-Launch und beim Nutzerwachstum entscheidend ist.</p>
+            <div style="font-weight: 700; margin-top: 2rem; color: var(--text-main); font-family: var(--font-title); font-size: 1.1rem; letter-spacing: 0.05em; border-top: 1px solid rgba(255,255,255,0.05); padding-top: 1.5rem; width: 100%;">
+              Saubere Technik. Echte Produktdenke.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÜBER YY LABS SECTION -->
+  <section id="ueber-uns">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-content reveal">
+          <h2>Über <span class="text-gradient-accent">YY Labs</span></h2>
+          <p>YY Labs ist ein digitales Studio für App-Design, Webentwicklung und moderne Produktentwicklung. Der Fokus liegt auf klaren Interfaces, starken Markenauftritten und digitalen Produkten, die professionell wirken und langfristig wachsen können.</p>
+          <p>Neben Kundenprojekten entwickelt YY Labs eigene Apps und Plattformen – darunter ROFT, eine Automotive-Social-App für die deutsche Auto- und Motorrad-Community.</p>
+          
+          <div style="display: flex; gap: 3rem; margin-top: 3rem; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem;">
+            <div>
+              <div style="font-size: 2.5rem; font-family: var(--font-title); font-weight: 700; color: #fff; line-height: 1;">100%</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 600; text-transform: uppercase;">Inhouse Entwicklung</div>
+            </div>
+            <div>
+              <div style="font-size: 2.5rem; font-family: var(--font-title); font-weight: 700; color: #fff; line-height: 1;">Pixel</div>
+              <div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem; font-weight: 600; text-transform: uppercase;">Perfect Design</div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="about-visual reveal reveal-delay-2">
+          <div class="about-image-placeholder glass">
+            <!-- Sleek abstract tech studio background using gradients -->
+            <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #050510 0%, #151030 50%, #0052ff 100%); display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; position: relative;">
+              <img src="/assets/logo.jpg" alt="YY Labs Portrait Placeholder" style="width: 120px; height: 120px; border-radius: 24px; border: 2px solid rgba(255, 255, 255, 0.1); box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4); margin-bottom: 1.5rem;">
+              <div style="font-family: var(--font-title); font-weight: 700; font-size: 1.25rem; color: #fff;">YY Labs Studio</div>
+              <div style="font-size: 0.85rem; color: var(--color-accent); margin-top: 0.25rem; font-weight: 500;">App Design & Webentwicklung</div>
+              <div style="position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 16px 16px;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA SECTION -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-box glass reveal">
+        <div class="glow-orb"></div>
+        <h2>Bereit für dein nächstes <span class="text-gradient-accent">digitales Produkt?</span></h2>
+        <p>Ob App, Website oder Plattform – YY Labs hilft dir, aus deiner Idee ein professionelles digitales Erlebnis zu machen.</p>
+        <a href="#kontakt" class="btn btn-primary">
+          Projekt anfragen
+          <i data-lucide="mail" class="btn-icon"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- KONTAKT SECTION -->
+  <section id="kontakt">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info reveal">
+          <div class="contact-info-top">
+            <h2>Lass uns etwas <span class="text-gradient-cyan">Neues erschaffen.</span></h2>
+            <p>Egal ob du am Anfang einer Idee stehst oder ein bestehendes Produkt auf das nächste Level heben möchtest – schreib uns einfach.</p>
+          </div>
+          
+          <div class="contact-details">
+            <!-- E-Mail -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <i data-lucide="mail" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span>Schreib uns</span>
+                <a href="mailto:hello@yylabs.dev">hello@yylabs.dev</a>
+              </div>
+            </div>
+            
+            <!-- Instagram -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <i data-lucide="instagram" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span>Folge uns</span>
+                <a href="https://instagram.com/YYLabs_official" target="_blank" rel="noopener noreferrer">@YYLabs_official</a>
+              </div>
+            </div>
+            
+            <!-- Location -->
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <i data-lucide="map-pin" style="width: 22px; height: 22px;"></i>
+              </div>
+              <div class="contact-detail-text">
+                <span>Standort</span>
+                <p>Deutschland</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="contact-form-container glass reveal reveal-delay-1">
+          <!-- Form -->
+          <form id="contact-form" novalidate>
+            <div class="form-group-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Dein Name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">E-Mail-Adresse</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="deine@mail.de" required>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="project-type">Projektart</label>
+              <select id="project-type" name="project-type" class="form-control" required>
+                <option value="" disabled selected>Bitte wählen...</option>
+                <option value="app">Mobile App (iOS/Android)</option>
+                <option value="website">Webseite / Landingpage</option>
+                <option value="ui-ux">UI/UX Design</option>
+                <option value="sonstiges">Sonstiges</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="budget">Budgetrahmen</label>
+              <select id="budget" name="budget" class="form-control">
+                <option value="" disabled selected>Bitte wählen...</option>
+                <option value="under-5k">unter 5.000 €</option>
+                <option value="5k-15k">5.000 € - 15.000 €</option>
+                <option value="15k-30k">15.000 € - 30.000 €</option>
+                <option value="over-30k">über 30.000 €</option>
+              </select>
+            </div>
+            
+            <div class="form-group">
+              <label for="message">Projektbeschreibung</label>
+              <textarea id="message" name="message" class="form-control" placeholder="Erzähle uns kurz von deiner Idee..." required></textarea>
+            </div>
+            
+            <button type="submit" class="btn btn-primary submit-btn">
+              Projekt anfragen
+              <i data-lucide="send" class="btn-icon"></i>
+            </button>
+          </form>
+          
+          <!-- Success State -->
+          <div class="form-success-message" id="success-message">
+            <div class="form-success-icon">
+              <i data-lucide="check" style="width: 32px; height: 32px;"></i>
+            </div>
+            <h3>Nachricht gesendet!</h3>
+            <p>Vielen Dank für deine Anfrage. Wir melden uns innerhalb von 24 Stunden bei dir.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#start" class="logo">
+            <img src="/assets/logo.jpg" alt="YY Labs Logo" class="logo-img">
+            <span class="logo-text">YY-<span>Labs</span></span>
+          </a>
+          <p>App-Design, Webentwicklung und digitale Produkte von der Idee bis zum Launch.</p>
+        </div>
+        
+        <div class="footer-links-group">
+          <div class="footer-links">
+            <h4>Navigation</h4>
+            <a href="#start">Start</a>
+            <a href="#leistungen">Leistungen</a>
+            <a href="#referenzen">Referenzen</a>
+            <a href="#prozess">Prozess</a>
+          </div>
+          <div class="footer-links">
+            <h4>Rechtliches</h4>
+            <a href="#impressum">Impressum</a>
+            <a href="#datenschutz">Datenschutz</a>
+            <a href="#kontakt">Kontakt</a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2026 YY Labs. Alle Rechte vorbehalten.</p>
+        <div class="footer-legal-links">
+          <a href="#impressum">Impressum</a>
+          <a href="#datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- JS Interactivity -->
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
