@@ -54,11 +54,15 @@ html {
   font-family: var(--font-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   overflow-x: hidden;
+  width: 100%;
   line-height: 1.6;
+  position: relative;
 }
 
 /* Scrollbar */
@@ -77,6 +81,17 @@ body {
 }
 
 /* --- UTILITIES & LAYOUT --- */
+.glow-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
@@ -569,7 +584,7 @@ nav a:hover::after, nav a.active::after {
 
 /* --- REFERENZEN (PORTFOLIO) --- */
 .portfolio-intro {
-  margin-top: -2rem;
+  margin-top: 0;
 }
 
 .portfolio-subsection {
@@ -1406,6 +1421,13 @@ footer {
   
   section {
     padding: 4.5rem 0;
+  }
+
+  .mockup-container {
+    transform: scale(0.68);
+    transform-origin: center center;
+    height: 330px;
+    margin: -3rem auto;
   }
   
   /* Spacing and line-height fixes for Hero */
