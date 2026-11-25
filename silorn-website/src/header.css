@@ -1,0 +1,151 @@
+.silorn-header {
+  border-bottom: 1px solid transparent;
+  transition: background-color .24s ease, border-color .24s ease, box-shadow .24s ease;
+}
+
+.silorn-header[data-scrolled] {
+  background: rgb(255 255 255 / .90);
+  border-color: rgb(11 27 54 / .08);
+  box-shadow: 0 .4rem 1.6rem rgb(11 27 54 / .055);
+  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(24px);
+}
+
+.silorn-header-inner {
+  width: min(1380px, calc(100% - 2 * var(--silorn-gutter, clamp(1.125rem, 4vw, 3.75rem))));
+  padding-block: 1.25rem;
+  padding-inline: clamp(.55rem, 1.6vw, 1.5rem);
+  transition: padding-block .24s ease;
+}
+
+.silorn-header[data-scrolled] .silorn-header-inner { padding-block: .75rem; }
+
+.silorn-brand { color: var(--midnight); text-decoration: none; }
+.silorn-brand-label { display: grid; line-height: 1; }
+.silorn-wordmark {
+  font: 800 1.83rem / .92 var(--font-display, sans-serif);
+  letter-spacing: -.07em;
+}
+.silorn-brand-dot {
+  display: inline-block;
+  width: .175em;
+  height: .175em;
+  margin-inline-start: .07em;
+  border-radius: 50%;
+  background: var(--royal);
+}
+.silorn-brand-caption {
+  margin-top: .40rem;
+  font: 800 .43rem / 1 var(--font-display, sans-serif);
+  letter-spacing: .34em;
+  text-transform: uppercase;
+}
+
+.silorn-header-nav { gap: clamp(.7rem, 1.65vw, 1.65rem); }
+.silorn-nav-item {
+  display: grid;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--steel);
+  font: inherit;
+  font-size: .91rem;
+  font-weight: 610;
+  text-decoration: none;
+  cursor: pointer;
+}
+.silorn-roll { display: block; overflow: hidden; height: 1.35rem; }
+.silorn-roll-track {
+  display: grid;
+  grid-auto-rows: 1.35rem;
+  line-height: 1.35rem;
+  transition: transform .28s cubic-bezier(.2, .78, .33, 1);
+  white-space: nowrap;
+}
+.silorn-roll-track > span + span { color: var(--royal); }
+.silorn-nav-item:is(:hover, :focus-visible) .silorn-roll-track { transform: translateY(-1.35rem); }
+
+.silorn-menu-toggle {
+  min-height: 2.75rem;
+  border: 1px solid var(--rule);
+  background: #fff;
+  color: var(--steel);
+  cursor: pointer;
+}
+.silorn-menu-toggle { width: 2.75rem; color: var(--midnight); }
+
+.silorn-header-socials { display: flex; gap: .42rem; }
+.silorn-social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .42rem;
+  min-width: 2.75rem;
+  min-height: 2.75rem;
+  padding: .4rem .75rem;
+  border: 1px solid #d3dfef;
+  border-radius: 100vw;
+  background: #fff;
+  color: var(--midnight);
+  font-size: .79rem;
+  font-weight: 650;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+}
+.silorn-social-link svg { flex: none; }
+.silorn-social-link:is(:hover, :focus-visible) { background: #edf4ff; border-color: #b1c8ef; color: #1144aa; }
+
+.silorn-mobile-menu {
+  position: absolute;
+  inset-block-start: calc(100% + .4rem);
+  inset-inline-end: 0;
+  width: min(24rem, 100%);
+  max-height: calc(100dvh - var(--silorn-header-height, 72px) - 1rem);
+  overflow: auto;
+  padding: .55rem;
+  border: 1px solid var(--rule);
+  border-radius: 1.2rem;
+  background: #fff;
+  box-shadow: 0 1.4rem 3rem rgb(11 27 54 / .13);
+}
+.silorn-mobile-item {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  width: 100%;
+  min-height: 2.8rem;
+  padding: .6rem .85rem;
+  border: 0;
+  border-radius: .65rem;
+  background: transparent;
+  color: var(--midnight);
+  font: inherit;
+  font-size: .93rem;
+  font-weight: 620;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+.silorn-mobile-item:is(:hover, :focus-visible) { background: var(--cool); color: var(--royal); }
+@media (max-width: 63.999rem) {
+  .silorn-header-inner { padding-block: .875rem; }
+  .silorn-header[data-scrolled] .silorn-header-inner { padding-block: .5rem; }
+}
+@media (max-width: 39.999rem) {
+  .silorn-header-inner { gap: .5rem; padding-inline: 0; }
+  .silorn-header-socials { gap: .32rem; }
+  .silorn-social-label { display: none; }
+  .silorn-social-link { padding: .35rem; }
+}
+@media (max-width: 22rem) {
+  .silorn-brand { gap: .45rem; }
+  .silorn-brand-mark { width: 1.62rem; }
+  .silorn-wordmark { font-size: 1.6rem; }
+  .silorn-brand-caption { font-size: .38rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .silorn-header, .silorn-header-inner, .silorn-roll-track, .silorn-social-link { transition: none; }
+}

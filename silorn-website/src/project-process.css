@@ -1,0 +1,197 @@
+.project-process-heading {
+  margin-bottom: clamp(1.8rem, 4.5vw, 3.5rem);
+}
+
+.project-process-heading h2 {
+  margin-top: .28em;
+  font: 760 clamp(2.3rem, 4.6vw, 4.5rem) / 1.04 var(--font-display, Manrope, sans-serif);
+  letter-spacing: -.06em;
+  text-wrap: balance;
+}
+
+.project-process-timeline {
+  --node-size: 3.5rem;
+  --step-gap: clamp(1.35rem, 3vw, 2.75rem);
+  --path-blue: var(--royal, var(--blue));
+  --path-time: .48s;
+  display: grid;
+  gap: var(--step-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.project-process-step {
+  --phase-delay: 0s;
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--node-size) minmax(0, 1fr);
+  gap: clamp(.85rem, 2vw, 1.45rem);
+  align-items: start;
+}
+
+.project-process-step:nth-child(2) { --phase-delay: var(--path-time); }
+.project-process-step:nth-child(3) { --phase-delay: calc(2 * var(--path-time)); }
+.project-process-step:nth-child(4) { --phase-delay: calc(3 * var(--path-time)); }
+
+.project-process-node {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  width: var(--node-size);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #d9e4fc;
+  border-radius: 1rem;
+  background: linear-gradient(155deg, #fcfdff, #edf3ff);
+  box-shadow: inset 0 0 0 3px rgb(255 255 255 / 72%);
+  color: var(--path-blue);
+}
+
+.project-process-node::before {
+  position: absolute;
+  inset: -1px;
+  border: 1px solid var(--path-blue);
+  border-radius: inherit;
+  content: "";
+  opacity: 0;
+}
+
+.project-process-node::after {
+  position: absolute;
+  bottom: -.24rem;
+  left: 50%;
+  width: .42rem;
+  aspect-ratio: 1;
+  border: 1px solid var(--surface, #fff);
+  border-radius: 50%;
+  background: #729aeb;
+  content: "";
+  translate: -50%;
+}
+
+.project-process-step:last-child .project-process-node::after { display: none; }
+
+.project-process-step:nth-child(2) .project-process-node {
+  border-color: var(--path-blue);
+  background: linear-gradient(155deg, #327aff, var(--path-blue));
+  box-shadow: inset 0 0 0 3px rgb(255 255 255 / 22%);
+  color: #fff;
+}
+
+.project-process-connector {
+  --signal-start: 0 auto auto 50%;
+  --signal-end: 100% auto auto 50%;
+  position: absolute;
+  inset: var(--node-size) auto calc(-1 * var(--step-gap)) calc(var(--node-size) / 2);
+  display: grid;
+  width: 1px;
+  place-items: center;
+  background: #cad8f4;
+  color: var(--path-blue);
+  translate: -50%;
+}
+
+.project-process-connector::before {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, var(--path-blue), #88aefa);
+  content: "";
+  opacity: .5;
+  transform-origin: top;
+}
+
+.project-process-connector::after {
+  position: absolute;
+  z-index: 1;
+  inset: var(--signal-start);
+  width: .31rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--path-blue);
+  box-shadow: 0 0 0 2px #cbdfff, 0 0 .66rem #6395ff;
+  content: "";
+  opacity: 0;
+  translate: -50% -50%;
+}
+
+.project-process-connector svg {
+  position: absolute;
+  box-sizing: content-box;
+  padding: .18rem;
+  background: var(--surface, #fff);
+  rotate: 90deg;
+}
+
+.project-process-copy h3 {
+  margin: 0 0 .5rem;
+  color: var(--ink);
+  font: 730 clamp(1.15rem, 1.65vw, 1.55rem) / 1.22 var(--font-display, Manrope, sans-serif);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+.project-process-copy p {
+  max-width: 35ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 54rem) {
+  .project-process-timeline { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .project-process-step { grid-template-columns: minmax(0, 1fr); }
+  .project-process-node::after {
+    inset: 50% -.24rem auto auto;
+    translate: 0 -50%;
+  }
+  .project-process-connector {
+    --signal-start: 50% auto auto 0;
+    --signal-end: 50% auto auto 100%;
+    inset: calc(var(--node-size) / 2) calc(-1 * var(--step-gap)) auto var(--node-size);
+    width: auto;
+    height: 1px;
+    translate: 0 -50%;
+  }
+  .project-process-connector::before { transform-origin: left; }
+  .project-process-connector svg { rotate: none; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .project-process-timeline[data-entered] .project-process-node::before {
+    animation: project-process-arrive .68s ease-out var(--phase-delay) both;
+  }
+  .project-process-timeline[data-entered] .project-process-connector::before {
+    animation: project-process-draw var(--path-time) ease-in-out var(--phase-delay) both;
+  }
+  .project-process-timeline[data-entered] .project-process-connector::after {
+    animation: project-process-cross var(--path-time) ease-in-out var(--phase-delay) both;
+  }
+  .project-process-timeline[data-entered] .project-process-connector svg {
+    animation: project-process-arrow .34s ease-out calc(var(--phase-delay) + .2s) both;
+  }
+}
+
+@keyframes project-process-arrive {
+  0% { opacity: 0; scale: 1; }
+  24% { opacity: .38; }
+  100% { opacity: 0; scale: 1.19; }
+}
+
+@keyframes project-process-draw {
+  from { scale: 0; opacity: .5; }
+  to { scale: 1; opacity: .5; }
+}
+
+@keyframes project-process-cross {
+  0% { inset: var(--signal-start); opacity: 0; }
+  13%, 84% { opacity: 1; }
+  100% { inset: var(--signal-end); opacity: 0; }
+}
+
+@keyframes project-process-arrow {
+  from { opacity: .6; }
+  42% { scale: 1.12; }
+  to { opacity: 1; }
+}

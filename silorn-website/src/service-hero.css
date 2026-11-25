@@ -1,0 +1,130 @@
+.silorn-service-hero {
+  background: #fcfcfa;
+  color: var(--midnight);
+  font-family: var(--font-ui);
+}
+
+.silorn-service-hero-inner {
+  width: min(calc(100% - 2 * var(--silorn-gutter)), 78rem);
+  margin-inline: auto;
+  padding-block: calc(var(--silorn-header-height) + clamp(2.5rem, 5vw, 5rem)) clamp(2.75rem, 5.5vw, 5.75rem);
+}
+
+.silorn-service-hero-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(.7rem, 1.5vw, 1.25rem) 1.5rem;
+  margin-block-end: clamp(1.95rem, 3.6vw, 3.6rem);
+}
+
+.silorn-service-hero-intro h1 {
+  grid-column: 1 / -1;
+  margin: 0;
+  font: 750 clamp(2.75rem, 8vw, 7.4rem) / .99 var(--font-display);
+  letter-spacing: -.055em;
+  word-spacing: .025em;
+  text-wrap: balance;
+}
+
+.silorn-service-hero-intro p {
+  max-width: 40ch;
+  margin: 0;
+  color: var(--steel);
+  font-size: clamp(.98rem, 1.55vw, 1.22rem);
+  line-height: 1.55;
+}
+
+.silorn-service-hero-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-self: start;
+  gap: .75rem;
+  min-height: 2.8rem;
+  padding: .5rem 1rem;
+  border-radius: .2rem;
+  background: var(--royal);
+  color: #fff;
+  font-size: .86rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.silorn-service-hero-cta:hover {
+  background: var(--midnight);
+}
+
+.silorn-service-hero-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-top: 1px solid rgb(11 27 54 / 24%);
+}
+
+.silorn-service-hero-list li {
+  border-bottom: 1px solid rgb(11 27 54 / 24%);
+}
+
+.silorn-service-hero-link {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) auto;
+  align-items: center;
+  gap: clamp(.5rem, 2vw, 2rem);
+  min-height: clamp(4.45rem, 6vw, 6.3rem);
+  padding-block: .8rem;
+  color: var(--midnight);
+  text-decoration: none;
+}
+
+.silorn-service-hero-name {
+  font: 670 clamp(1.4rem, 3.2vw, 3.1rem) / 1.08 var(--font-display);
+  letter-spacing: -.054em;
+}
+
+.silorn-service-hero-description {
+  max-width: 43ch;
+  color: var(--steel);
+  font-size: clamp(.88rem, 1.2vw, 1rem);
+  line-height: 1.5;
+}
+
+.silorn-service-hero-arrow {
+  display: grid;
+  width: clamp(2.05rem, 3.5vw, 3rem);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  color: var(--royal);
+}
+
+.silorn-service-hero-link:is(:hover, :focus-visible) {
+  color: var(--royal);
+}
+
+.silorn-service-hero-link:is(:hover, :focus-visible) .silorn-service-hero-arrow {
+  background: var(--royal);
+  border-color: var(--royal);
+  color: #fff;
+}
+
+.silorn-service-hero :is(.silorn-service-hero-link, .silorn-service-hero-cta):focus-visible {
+  outline: 2px solid var(--royal);
+  outline-offset: 3px;
+}
+
+@media (max-width: 42rem) {
+  .silorn-service-hero-intro {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: start;
+  }
+
+  .silorn-service-hero-link {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .28rem .65rem;
+  }
+
+  .silorn-service-hero-arrow {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+}

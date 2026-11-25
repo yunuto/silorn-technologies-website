@@ -1,0 +1,28 @@
+@media (prefers-reduced-motion: no-preference) {
+  [data-site-reveal="copy"][data-site-revealed] {
+    animation: site-reveal-copy .72s cubic-bezier(.22, .72, .25, 1);
+  }
+
+  [data-site-reveal="portrait"][data-site-revealed] > img {
+    animation: site-reveal-portrait .95s cubic-bezier(.22, .72, .25, 1);
+  }
+
+  [data-site-reveal="form"][data-site-revealed] > .contact-form {
+    animation: site-reveal-form .82s cubic-bezier(.22, .72, .25, 1);
+  }
+}
+
+@keyframes site-reveal-copy {
+  from { translate: 0 clamp(1.15rem, 3vw, 1.7rem); opacity: .72; }
+  to { translate: 0 0; opacity: 1; }
+}
+
+@keyframes site-reveal-portrait {
+  from { scale: 1.12; }
+  to { scale: 1; }
+}
+
+@keyframes site-reveal-form {
+  from { translate: 0 clamp(1.3rem, 3.2vw, 2rem); border-color: #7faeff; }
+  to { translate: 0 0; }
+}
