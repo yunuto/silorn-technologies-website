@@ -56,8 +56,9 @@
   font-weight: 610;
   text-decoration: none;
   cursor: pointer;
+  transition: color .25s ease;
 }
-.silorn-roll { display: block; overflow: hidden; height: 1.35rem; }
+.silorn-roll { display: block; position: relative; overflow: hidden; height: 1.35rem; }
 .silorn-roll-track {
   display: grid;
   grid-auto-rows: 1.35rem;
@@ -66,7 +67,18 @@
   white-space: nowrap;
 }
 .silorn-roll-track > span + span { color: var(--royal); }
-.silorn-nav-item:is(:hover, :focus-visible) .silorn-roll-track { transform: translateY(-1.35rem); }
+.silorn-roll::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 2px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s ease;
+}
+.silorn-nav-item:is(:hover, :focus-visible) { color: var(--royal); }
+.silorn-nav-item:is(:hover, :focus-visible) .silorn-roll::after { transform: scaleX(1); }
 
 .silorn-menu-toggle {
   min-height: 2.75rem;
@@ -94,10 +106,10 @@
   font-weight: 650;
   text-decoration: none;
   white-space: nowrap;
-  transition: background-color .2s ease, border-color .2s ease, color .2s ease;
+  transition: background-color .2s ease, border-color .2s ease, color .2s ease, transform .25s ease, box-shadow .25s ease;
 }
 .silorn-social-link svg { flex: none; }
-.silorn-social-link:is(:hover, :focus-visible) { background: #edf4ff; border-color: #b1c8ef; color: #1144aa; }
+.silorn-social-link:is(:hover, :focus-visible) { background: #edf4ff; border-color: #b1c8ef; color: #1144aa; transform: translateY(-3px); box-shadow: 0 .4rem .85rem rgb(17 68 170 / .12); }
 
 .silorn-mobile-menu {
   position: absolute;
@@ -148,5 +160,6 @@
   .silorn-brand-caption { font-size: .38rem; }
 }
 @media (prefers-reduced-motion: reduce) {
-  .silorn-header, .silorn-header-inner, .silorn-roll-track, .silorn-social-link { transition: none; }
+  .silorn-header, .silorn-header-inner, .silorn-nav-item, .silorn-roll-track, .silorn-roll::after, .silorn-social-link { transition: none; }
+  .silorn-social-link:is(:hover, :focus-visible) { transform: none; }
 }

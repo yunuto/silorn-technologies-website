@@ -14,7 +14,7 @@ export default function StudioHero() {
   return (
     <section className="studio-hero" aria-labelledby="studio-hero-title">
       <div className="studio-hero-inner">
-        <div className="studio-hero-intro">
+        <div className="studio-hero-intro" data-site-reveal="copy">
           <h1 id="studio-hero-title">
             Du hast eine Idee. <em>Ich setze sie um.</em>
           </h1>
@@ -31,7 +31,7 @@ export default function StudioHero() {
         <nav className="studio-hero-services" id="leistungen" aria-label="Leistungen im Überblick">
           <ul>
             {heroServices.map(({ name, href }) => (
-              <li key={href}>
+              <li key={href} data-site-reveal="copy">
                 <a href={href}>
                   <span className="studio-service-diagram" aria-hidden="true">
                     <span>{serviceDiagrams.get(href)}</span>
