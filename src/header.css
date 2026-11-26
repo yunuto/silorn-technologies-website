@@ -4,11 +4,11 @@
 }
 
 .silorn-header[data-scrolled] {
-  background: rgb(255 255 255 / .90);
+  background: rgb(255 255 255 / .74);
   border-color: rgb(11 27 54 / .08);
   box-shadow: 0 .4rem 1.6rem rgb(11 27 54 / .055);
-  -webkit-backdrop-filter: blur(24px);
-  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
 }
 
 .silorn-header-inner {
@@ -26,6 +26,7 @@
   font: 800 1.83rem / .92 var(--font-display, sans-serif);
   letter-spacing: -.07em;
 }
+.silorn-wordmark-n { margin-left: .045em; }
 .silorn-brand-dot {
   display: inline-block;
   width: .175em;

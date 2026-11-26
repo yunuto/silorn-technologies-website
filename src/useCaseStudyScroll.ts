@@ -5,6 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 
 const motion = "(prefers-reduced-motion: no-preference)";
+const introHold = .15;
+const morphDuration = .45;
+const cardDuration = 1;
+const endHold = .35;
+const trackStart = introHold + morphDuration;
+const timelineDuration = trackStart + cardDuration + endHold;
 
 export function useCaseStudyScroll(count: number) {
   const sectionRef = useRef<HTMLElement>(null);
@@ -27,7 +33,7 @@ export function useCaseStudyScroll(count: number) {
     let nativeFrame = 0;
 
     const publish = (scrolled: number) => {
-      if (morph && morph.time() <= .45) {
+      if (morph && morph.time() <= trackStart) {
         setActiveIndex(0);
         return;
       }
@@ -78,7 +84,7 @@ export function useCaseStudyScroll(count: number) {
       const offset = cardBounds.left - firstCard.getBoundingClientRect().left;
       const target = gsap.utils.clamp(0, distance, offset);
       if (trigger) {
-        const progress = index === 0 ? 0 : (.45 + target / distance) / 1.45;
+        const progress = index === 0 ? 0 : (trackStart + target / distance * cardDuration) / timelineDuration;
         trigger.scroll(trigger.start + (trigger.end - trigger.start) * progress);
         trigger.update();
         // Catch up immediately so a keyboard-focused card is visible before the next Tab.
@@ -123,22 +129,23 @@ export function useCaseStudyScroll(count: number) {
       setWebsiteVisible(false);
       const animation = gsap.timeline({
         onUpdate(this: gsap.core.Tween) {
-          setWebsiteVisible(this.time() >= .225);
+          setWebsiteVisible(this.time() >= introHold + morphDuration / 2);
           publish(this.progress());
         },
         scrollTrigger: {
           trigger: section,
           start: "top top",
-          end: () => `+=${Math.max(1, travel() + 450)}`,
+          end: () => `+=${Math.max(1, travel() * 1.2 + 850)}`,
           pin: true,
           scrub: 0.85,
           invalidateOnRefresh: true,
           onRefresh: (instance) => publish(instance.progress),
         },
       });
-      animation.to([appCopy, appImage], { autoAlpha: 0, duration: .45, ease: "power2.inOut" }, 0);
-      animation.to(website, { autoAlpha: 1, duration: .45, ease: "power2.inOut" }, 0);
-      animation.to(track, { x: () => -travel(), duration: 1, ease: "none" }, .45);
+      animation.to([appCopy, appImage], { autoAlpha: 0, y: -12, scale: .985, duration: morphDuration, ease: "power2.inOut" }, introHold);
+      animation.fromTo(website, { autoAlpha: 0, y: 16, scale: .985 }, { autoAlpha: 1, y: 0, scale: 1, duration: morphDuration, ease: "power2.inOut" }, introHold);
+      animation.to(track, { x: () => -travel(), duration: cardDuration, ease: "none" }, trackStart);
+      animation.to({}, { duration: endHold });
       morph = animation;
       trigger = animation.scrollTrigger;
 

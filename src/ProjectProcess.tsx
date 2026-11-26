@@ -30,16 +30,30 @@ export default function ProjectProcess() {
   const [entered, setEntered] = useState(false);
 
   useEffect(() => {
-    if (!timeline.current || typeof IntersectionObserver === "undefined") return;
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return;
-      setEntered(true);
-      observer.disconnect();
-    }, { rootMargin: "0px 0px -36% 0px" });
-
-    observer.observe(timeline.current);
-    return () => observer.disconnect();
+    const element = timeline.current;
+    if (!element || !window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+    setEntered(true);
+    let frame = 0;
+    const update = () => {
+      frame = 0;
+      const top = element.getBoundingClientRect().top;
+      const height = window.innerHeight;
+      const progress = Math.max(0, Math.min(1, (height * .85 - top) / (height * .65)));
+      element.getAnimations({ subtree: true }).forEach((animation) => {
+        animation.pause();
+        animation.currentTime = progress * 2200;
+      });
+    };
+    const schedule = () => { if (!frame) frame = window.requestAnimationFrame(update); };
+    const initial = window.requestAnimationFrame(schedule);
+    window.addEventListener("scroll", schedule, { passive: true });
+    window.addEventListener("resize", schedule);
+    return () => {
+      window.cancelAnimationFrame(initial);
+      window.cancelAnimationFrame(frame);
+      window.removeEventListener("scroll", schedule);
+      window.removeEventListener("resize", schedule);
+    };
   }, []);
 
   return (

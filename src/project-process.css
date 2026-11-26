@@ -161,15 +161,19 @@
 @media (prefers-reduced-motion: no-preference) {
   .project-process-timeline[data-entered] .project-process-node::before {
     animation: project-process-arrive .68s ease-out var(--phase-delay) both;
+    animation-play-state: paused;
   }
   .project-process-timeline[data-entered] .project-process-connector::before {
     animation: project-process-draw var(--path-time) ease-in-out var(--phase-delay) both;
+    animation-play-state: paused;
   }
   .project-process-timeline[data-entered] .project-process-connector::after {
     animation: project-process-cross var(--path-time) ease-in-out var(--phase-delay) both;
+    animation-play-state: paused;
   }
   .project-process-timeline[data-entered] .project-process-connector svg {
     animation: project-process-arrow .34s ease-out calc(var(--phase-delay) + .2s) both;
+    animation-play-state: paused;
   }
 }
 

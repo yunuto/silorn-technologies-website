@@ -95,7 +95,7 @@ export default function Header() {
             <path fill="var(--midnight)" d="m0 112 94-47c6-3 7-6 3-9 7 4 7 14 6 24-1 8-4 12-10 16l-55 27c-4 2-10 2-14 0Z" />
           </svg>
           <span aria-hidden="true" className="silorn-brand-label">
-            <span className="silorn-wordmark">Silorn<span className="silorn-brand-dot" /></span>
+            <span className="silorn-wordmark">Silor<span className="silorn-wordmark-n">n</span><span className="silorn-brand-dot" /></span>
             <span className="silorn-brand-caption">Technologies</span>
           </span>
         </a>
