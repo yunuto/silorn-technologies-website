@@ -19,12 +19,14 @@ export default function ContactForm() {
     const fields = new FormData(form);
     const brief = String(fields.get("brief") ?? "").trim();
     setEstimate(null);
-    if (!service || service === "Noch offen" || brief.length < 30) {
+    if (!service || brief.length < 30) {
       setEstimateError("Bitte wähle eine Projektart und beschreibe dein Vorhaben mit mindestens 30 Zeichen.");
       return;
     }
     setEstimateError("");
     setEstimating(true);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), 20000);
     const inputIsCurrent = () => {
       const currentFields = new FormData(form);
       return currentFields.get("service") === service && String(currentFields.get("brief") ?? "").trim() === brief;
@@ -34,7 +36,7 @@ export default function ContactForm() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ service, brief }),
-        signal: AbortSignal.timeout(20000),
+        signal: controller.signal,
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Die Schätzung ist gerade nicht verfügbar.");
@@ -44,11 +46,12 @@ export default function ContactForm() {
       if (inputIsCurrent()) setEstimate(data);
     } catch (error) {
       if (inputIsCurrent()) {
-        const message = error instanceof Error && !["TimeoutError", "SyntaxError", "TypeError"].includes(error.name)
+        const message = error instanceof Error && !["AbortError", "SyntaxError", "TypeError"].includes(error.name)
           ? error.message : "Die Schätzung ist gerade nicht verfügbar. Bitte versuche es später erneut.";
         setEstimateError(message);
       }
     } finally {
+      window.clearTimeout(timeout);
       setEstimating(false);
     }
   }
@@ -102,8 +105,6 @@ export default function ContactForm() {
           }} required>
             <option value="" disabled>Projektart auswählen</option>
             {heroServices.map(({ name }) => <option key={name}>{name}</option>)}
-            <option>Shopify-Onlineshop</option>
-            <option>Noch offen</option>
           </select>
         </label>
         <label className="contact-form-wide">

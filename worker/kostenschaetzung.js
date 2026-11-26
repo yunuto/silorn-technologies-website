@@ -9,6 +9,7 @@ const prices = {
 const allowedOrigins = new Set([
   "https://silorn-technologies.de",
   "https://www.silorn-technologies.de",
+  "https://home-5021997289.app-ionos.space",
   "https://silorn-technologies.yunus6529.chatgpt.site",
 ]);
 
