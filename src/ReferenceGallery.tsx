@@ -72,6 +72,9 @@ export default function ReferenceGallery() {
                           <Play size={19} aria-hidden="true" />
                           <span><small>In Vorbereitung</small>Google Play</span>
                         </span>
+                        <a className="silorn-case-link silorn-roft-fallback" href="https://roftofficial.com/" target="_blank" rel="noopener noreferrer">
+                          Website ansehen <ArrowUpRight size={16} aria-hidden="true" />
+                        </a>
                       </>
                     ) : (
                       <a className="silorn-case-link" href={study.link.url} {...(study.link.url.startsWith("https://") ? { target: "_blank", rel: "noopener noreferrer" } : {})}>

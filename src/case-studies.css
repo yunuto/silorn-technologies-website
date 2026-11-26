@@ -211,6 +211,7 @@
   text-decoration: none;
 }
 .silorn-case-link:hover { text-decoration: underline; }
+.silorn-cases[data-scroll-pinned] .silorn-roft-fallback { display: none; }
 .silorn-roft-website-label {
   display: inline-flex;
   align-items: center;
@@ -313,21 +314,35 @@
 }
 @media (min-width: 64rem) {
   .silorn-cases-heading { flex-direction: row; align-items: center; }
+  .silorn-cases-viewport {
+    width: min(calc(100% - 2 * var(--silorn-gutter)), 980px);
+    margin-inline: auto;
+    container-type: inline-size;
+  }
+  .silorn-cases-track { padding-inline: 0; }
   .silorn-case-card {
-    width: min(60vw, 820px);
-    height: clamp(460px, 60vh, 560px);
+    width: 100cqw;
+    min-height: 460px;
   }
   .silorn-case-image { flex: 0 0 50%; aspect-ratio: auto; }
   .silorn-case-card[data-case-id="primus"],
   .silorn-case-card[data-case-id="doenerkueche"] {
     align-self: center;
-    width: min(82vw, 980px);
+    width: 100cqw;
     height: auto;
   }
   .silorn-case-card[data-case-id="primus"] .silorn-case-image,
   .silorn-case-card[data-case-id="doenerkueche"] .silorn-case-image {
     align-self: flex-start;
     flex-basis: 61%;
+  }
+  .silorn-case-photo,
+  .silorn-case-card[data-case-id="roft"] .silorn-case-photo,
+  .silorn-case-card[data-case-id="roft"] .silorn-roft-website .silorn-case-photo,
+  .silorn-case-card[data-case-id="primus"] .silorn-case-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 }
 .silorn-roft-website {
@@ -404,7 +419,6 @@
     .silorn-cases { gap: .7rem; }
     .silorn-cases-heading h2 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); }
     .silorn-cases-viewport { padding-bottom: .65rem; }
-    .silorn-case-card { height: clamp(370px, 59vh, 450px); }
     .silorn-case-card-copy { padding: clamp(1rem, 2vh, 1.5rem); }
     .silorn-case-client { margin-top: .55rem; }
     .silorn-case-summary { margin-bottom: .75rem; }

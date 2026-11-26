@@ -4,7 +4,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const motion = "(prefers-reduced-motion: no-preference)";
+// Short desktop windows need room for the full card and normal page scrolling.
+const motion = "(prefers-reduced-motion: no-preference) and (max-width: 63.999rem), (prefers-reduced-motion: no-preference) and (min-width: 64rem) and (min-height: 720px)";
 const introHold = .15;
 const morphDuration = .45;
 const cardDuration = 1;
