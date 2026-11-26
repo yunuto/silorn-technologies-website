@@ -144,8 +144,8 @@ export function useCaseStudyScroll(count: number) {
           onRefresh: (instance) => publish(instance.progress),
         },
       });
-      animation.to([appCopy, appImage], { autoAlpha: 0, y: -12, scale: .985, duration: morphDuration, ease: "power2.inOut" }, introHold);
-      animation.fromTo(website, { autoAlpha: 0, y: 16, scale: .985 }, { autoAlpha: 1, y: 0, scale: 1, duration: morphDuration, ease: "power2.inOut" }, introHold);
+      animation.to([appCopy, appImage], { autoAlpha: 0, y: -12, scale: .985, duration: morphDuration / 2, ease: "power2.in" }, introHold);
+      animation.fromTo(website, { autoAlpha: 0, y: 16, scale: .985 }, { autoAlpha: 1, y: 0, scale: 1, duration: morphDuration / 2, ease: "power2.out" }, introHold + morphDuration / 2);
       animation.to(track, { x: () => -travel(), duration: cardDuration, ease: "none" }, trackStart);
       animation.to({}, { duration: endHold });
       morph = animation;

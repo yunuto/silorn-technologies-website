@@ -92,7 +92,7 @@ export default function ReferenceGallery() {
                     <h3>Die Website zur ROFT Community</h3>
                     <p className="silorn-case-summary">Ein digitaler Auftritt, der die App vorstellt und Einblicke in Funktionen und Community gibt.</p>
                     <div className="silorn-case-links">
-                      <span className="silorn-roft-website-label">Website ansehen <ArrowUpRight size={16} aria-hidden="true" /></span>
+                      <a className="silorn-roft-website-label" href="https://roftofficial.com/" target="_blank" rel="noopener noreferrer">Website ansehen <ArrowUpRight size={16} aria-hidden="true" /></a>
                     </div>
                   </div>
                 </div>

@@ -158,6 +158,7 @@ a { color: inherit; }
 }
 .footer a { text-underline-offset: .18em; }
 .footer a:focus-visible { outline-color: #c2d3ff; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; }
 
 @media (max-width: 47rem) {
   .about-inner, .closing-inner { grid-template-columns: minmax(0, 1fr); }
