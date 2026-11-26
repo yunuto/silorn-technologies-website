@@ -80,8 +80,7 @@
 }
 
 .project-process-connector {
-  --signal-start: 0 auto auto 50%;
-  --signal-end: 100% auto auto 50%;
+  --signal-travel: 0 100%;
   position: absolute;
   inset: var(--node-size) auto calc(-1 * var(--step-gap)) calc(var(--node-size) / 2);
   display: grid;
@@ -101,17 +100,22 @@
   transform-origin: top;
 }
 
-.project-process-connector::after {
+.project-process-signal {
   position: absolute;
+  inset: 0;
   z-index: 1;
-  inset: var(--signal-start);
+  opacity: 0;
+}
+
+.project-process-signal::after {
+  position: absolute;
+  inset: 0 auto auto 50%;
   width: .31rem;
   aspect-ratio: 1;
   border-radius: 50%;
   background: var(--path-blue);
   box-shadow: 0 0 0 2px #cbdfff, 0 0 .66rem #6395ff;
   content: "";
-  opacity: 0;
   translate: -50% -50%;
 }
 
@@ -147,14 +151,14 @@
     translate: 0 -50%;
   }
   .project-process-connector {
-    --signal-start: 50% auto auto 0;
-    --signal-end: 50% auto auto 100%;
+    --signal-travel: 100% 0;
     inset: calc(var(--node-size) / 2) calc(-1 * var(--step-gap)) auto var(--node-size);
     width: auto;
     height: 1px;
     translate: 0 -50%;
   }
   .project-process-connector::before { transform-origin: left; }
+  .project-process-signal::after { inset: 50% auto auto 0; }
   .project-process-connector svg { rotate: none; }
 }
 
@@ -167,7 +171,7 @@
     animation: project-process-draw var(--path-time) ease-in-out var(--phase-delay) both;
     animation-play-state: paused;
   }
-  .project-process-timeline[data-entered] .project-process-connector::after {
+  .project-process-timeline[data-entered] .project-process-signal {
     animation: project-process-cross var(--path-time) ease-in-out var(--phase-delay) both;
     animation-play-state: paused;
   }
@@ -189,9 +193,9 @@
 }
 
 @keyframes project-process-cross {
-  0% { inset: var(--signal-start); opacity: 0; }
+  0% { translate: 0 0; opacity: 0; }
   13%, 84% { opacity: 1; }
-  100% { inset: var(--signal-end); opacity: 0; }
+  100% { translate: var(--signal-travel); opacity: 0; }
 }
 
 @keyframes project-process-arrow {

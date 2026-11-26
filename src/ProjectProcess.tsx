@@ -31,16 +31,21 @@ export default function ProjectProcess() {
 
   useEffect(() => {
     const element = timeline.current;
-    if (!element || !window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
+    if (!element?.getAnimations || !window.matchMedia("(prefers-reduced-motion: no-preference)").matches) return;
     setEntered(true);
     let frame = 0;
+    let animations: Animation[] = [];
+    let lastProgress = -1;
     const update = () => {
       frame = 0;
+      if (!animations.length) animations = element.getAnimations({ subtree: true });
+      if (!animations.length) return;
       const top = element.getBoundingClientRect().top;
       const height = window.innerHeight;
       const progress = Math.max(0, Math.min(1, (height * .85 - top) / (height * .65)));
-      element.getAnimations({ subtree: true }).forEach((animation) => {
-        animation.pause();
+      if (progress === lastProgress) return;
+      lastProgress = progress;
+      animations.forEach((animation) => {
         animation.currentTime = progress * 2200;
       });
     };
@@ -67,7 +72,10 @@ export default function ProjectProcess() {
           <li className="project-process-step" key={title}>
             <span className="project-process-node" aria-hidden="true"><Icon size={23} strokeWidth={1.6} /></span>
             {index < steps.length - 1 && (
-              <span className="project-process-connector" aria-hidden="true"><ArrowRight size={14} strokeWidth={1.4} /></span>
+              <span className="project-process-connector" aria-hidden="true">
+                <span className="project-process-signal" />
+                <ArrowRight size={14} strokeWidth={1.4} />
+              </span>
             )}
             <div className="project-process-copy">
               <h3>{title}</h3>

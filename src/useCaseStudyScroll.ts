@@ -112,8 +112,10 @@ export function useCaseStudyScroll(count: number) {
     const appCopy = first?.querySelector<HTMLElement>(":scope > .silorn-case-card-copy");
     const appImage = first?.querySelector<HTMLElement>(":scope > .silorn-case-image");
 
+    let websiteVisible: boolean | undefined;
     function setWebsiteVisible(visible: boolean) {
-      if (!website || !appCopy || !appImage) return;
+      if (!website || !appCopy || !appImage || websiteVisible === visible) return;
+      websiteVisible = visible;
       website.inert = !visible;
       website.setAttribute("aria-hidden", String(!visible));
       appCopy.inert = visible;

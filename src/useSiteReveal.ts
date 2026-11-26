@@ -13,12 +13,12 @@ export function useSiteReveal() {
         if (entry.isIntersecting) {
           entry.target.removeAttribute("data-site-pending");
           entry.target.setAttribute("data-site-revealed", "");
-        } else if (entry.boundingClientRect.top > 0) {
+        } else if (entry.rootBounds && entry.boundingClientRect.top >= entry.rootBounds.bottom) {
           entry.target.removeAttribute("data-site-revealed");
           entry.target.setAttribute("data-site-pending", "");
         }
       }
-    }, { rootMargin: "0px 0px -13% 0px", threshold: .12 });
+    }, { rootMargin: "0px 0px 5% 0px" });
 
     targets.forEach((target) => observer.observe(target));
     return () => observer.disconnect();
