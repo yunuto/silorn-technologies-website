@@ -24,7 +24,7 @@ export default function ReferenceGallery() {
   return (
     <section className="silorn-cases" aria-labelledby="silorn-cases-title" ref={sectionRef}>
       <header className="silorn-cases-heading">
-        <h2 id="silorn-cases-title">Projekte mit <em>messbarer Wirkung</em>.</h2>
+        <h2 id="silorn-cases-title">Projekte mit <em>Substanz</em>.</h2>
         <div className="silorn-cases-navigation" role="group" aria-label="Projekt in der Galerie auswählen">
           {galleryStudies.map((study, index) => {
             const label = study.kind === "reference" ? study.client : study.title;

@@ -9,7 +9,7 @@ function serviceFromHash() {
 
 export default function ContactForm() {
   const [service, setService] = useState(() => serviceFromHash() ?? "");
-  const [estimate, setEstimate] = useState<{ minimum: number; maximum: number; complexity: string; reason: string } | null>(null);
+  const [estimate, setEstimate] = useState<{ minimum: number; maximum: number } | null>(null);
   const [estimating, setEstimating] = useState(false);
   const [estimateError, setEstimateError] = useState("");
 
@@ -40,10 +40,10 @@ export default function ContactForm() {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || "Die Schätzung ist gerade nicht verfügbar.");
-      if (!Number.isFinite(data.minimum) || !Number.isFinite(data.maximum) || typeof data.reason !== "string") {
+      if (!Number.isFinite(data.minimum) || !Number.isFinite(data.maximum)) {
         throw new Error("Die Schätzung ist gerade nicht verfügbar.");
       }
-      if (inputIsCurrent()) setEstimate(data);
+      if (inputIsCurrent()) setEstimate({ minimum: data.minimum, maximum: data.maximum });
     } catch (error) {
       if (inputIsCurrent()) {
         const message = error instanceof Error && !["AbortError", "SyntaxError", "TypeError"].includes(error.name)
@@ -114,13 +114,15 @@ export default function ContactForm() {
       </div>
       <div className="contact-estimate">
         <button className="contact-estimate-button" type="button" onClick={estimateCost} disabled={estimating}><Sparkles size={17} aria-hidden="true" /> {estimating ? "Wird eingeschätzt …" : "Kosten mit KI einschätzen"}</button>
-        <small>Für die Schätzung gehen Projektart und Beschreibung an Cloudflare Workers AI. Lass vertrauliche Angaben bitte weg.</small>
+        <details className="contact-estimate-privacy">
+          <summary>Datenschutz zur KI-Schätzung</summary>
+          <p>Cloudflare Workers AI verarbeitet die gewählte Projektart und die Beschreibung. Bitte lass personenbezogene und vertrauliche Angaben im Freitext weg.</p>
+        </details>
         {estimateError && <p className="contact-estimate-error" role="alert">{estimateError}</p>}
-        {estimate && <div className="contact-estimate-result" role="status"><span>Unverbindliche Orientierung · {estimate.complexity}</span><strong>{estimate.minimum.toLocaleString("de-DE")} – {estimate.maximum.toLocaleString("de-DE")} €</strong><p>{estimate.reason}</p><small>Die tatsächlichen Kosten hängen vom genauen Umfang ab und werden persönlich besprochen.</small></div>}
+        {estimate && <div className="contact-estimate-result" role="status"><span>Unverbindliche Schätzung</span><strong>{estimate.minimum.toLocaleString("de-DE")} – {estimate.maximum.toLocaleString("de-DE")} €</strong></div>}
       </div>
       <div className="contact-form-submit">
-        <button type="submit" aria-describedby="contact-form-hint">E-Mail vorbereiten <ArrowUpRight size={18} aria-hidden="true" /></button>
-        <small id="contact-form-hint">Dein E-Mail-Programm öffnet sich mit einem Entwurf, den du dort abschicken kannst.</small>
+        <button type="submit">E-Mail vorbereiten <ArrowUpRight size={18} aria-hidden="true" /></button>
       </div>
     </form>
   );
